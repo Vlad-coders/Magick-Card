@@ -1,5 +1,5 @@
 const basketRouter = require('express').Router();
-const generateTokens = require('../../../utils/generateTokens');
+const generateTokens = require('../utils/generateTokens');
 const cookieConfig = require('../configs/сookie.config');
 const { Card, Basket, User } = require('../../db/models');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
