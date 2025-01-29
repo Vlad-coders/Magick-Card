@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import SignUpPage from "./components/pages/SignUpPage";
+import SignUpPage from "./components/pages/Login/SignUpPage/SignUpPage";
 import axiosInstance, { setAccessToken } from "./api/axiosInstance";
 
 import { Route, Routes, useNavigate } from "react-router";
 
-import LoginPage from "./components/pages/LoginPage";
-import PersonalAccount from "./components/pages/PersonalAccount";
+import LoginPage from "./components/pages/Login/LoginPage/LoginPage";
+import PersonalAccount from "./components/pages/Login/PersonalAccount/PersonalAccount";
 
 import Layout from "./Layout";
 function App() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({ status: "logging" });
+  console.log("App=====");
+
   useEffect(() => {
     axiosInstance("/tokens/refresh")
       .then(({ data }) => {
@@ -30,7 +33,7 @@ function App() {
       .get("/auth/logout")
       .then(() => setUser({ status: "guest", data: null }));
   };
-  const navigate = useNavigate();
+
   const signUpHandler = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));

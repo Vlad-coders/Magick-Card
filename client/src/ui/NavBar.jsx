@@ -1,6 +1,6 @@
-// import { Menu } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Menu, MenuItem } from "semantic-ui-react";
 
+import { Link } from "react-router-dom";
 export default function NavBar({
   logoutHandler,
   user,
@@ -9,9 +9,9 @@ export default function NavBar({
 }) {
   return (
     <Menu pointing inverted>
-      <Menu.Item name={user.data ? user.data.name : "Гость"} />
-      {user.data && (
-        <Menu.Item
+      <MenuItem name={user?.data ? user?.data?.name : "Гость"} />
+      {user?.data && (
+        <MenuItem
           as={Link}
           to="/books"
           name="Книги"
@@ -19,8 +19,8 @@ export default function NavBar({
           onClick={() => handleItemClick("Книги")}
         />
       )}
-      {user.data && (
-        <Menu.Item
+      {user?.data && (
+        <MenuItem
           as={Link}
           to="/add"
           name="Добавить книгу"
@@ -28,8 +28,8 @@ export default function NavBar({
           onClick={() => handleItemClick("Добавить книгу")}
         />
       )}
-      {user.data && (
-        <Menu.Item
+      {user?.data && (
+        <MenuItem
           as={Link}
           to="/mybooks"
           name="Мои книги"
@@ -37,8 +37,8 @@ export default function NavBar({
           onClick={() => handleItemClick("Мои книги")}
         />
       )}
-      {!user.data && (
-        <Menu.Item
+      {!user?.data && (
+        <MenuItem
           as={Link}
           to="/signin"
           name="Вход"
@@ -46,8 +46,8 @@ export default function NavBar({
           onClick={() => handleItemClick("Вход")}
         />
       )}
-      {!user.data && (
-        <Menu.Item
+      {!user?.data && (
+        <MenuItem
           as={Link}
           to="/signup"
           name="Регистрация"
@@ -55,15 +55,13 @@ export default function NavBar({
           onClick={() => handleItemClick("Регистрация")}
         />
       )}
-      {user.data && (
-        <Menu.Item
+      {user?.data && (
+        <MenuItem
           position="right"
           name="Выход"
           active={activeItem === "Выход"}
-          onClick={() => {
-            handleItemClick("Выход");
-            logoutHandler();
-          }}
+          onClick={() => handleItemClick("Выход")}
+          // onClick={logoutHandler}
         />
       )}
     </Menu>
