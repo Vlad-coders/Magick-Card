@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SignUpPage from "./components/pages/Login/SignUpPage/SignUpPage";
 import axiosInstance, { setAccessToken } from "./api/axiosInstance";
+import MainPage from "./components/pages/MainPage/MainPage";  
 
 import { Route, Routes, useNavigate } from "react-router";
 
@@ -70,6 +71,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout user={user} logoutHandler={logoutHandler} />}>
+        <Route path="/" element={<MainPage user={user} />} />
         <Route path="/" element={<PersonalAccount user={user} />} />
 
         <Route
