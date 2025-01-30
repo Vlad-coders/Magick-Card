@@ -1,5 +1,5 @@
 const express = require('express');
-const { Card, Basket, User } = require('../../db/models');
+const { Card } = require('../../db/models');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
 
 const cardRouter = express.Router();
