@@ -1,6 +1,8 @@
 const express = require('express');
 const { Card } = require('../../db/models');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
+const multer = require('multer');
+const path = require('path');
 
 const cardRouter = express.Router();
 
@@ -16,12 +18,22 @@ cardRouter.get('/', async (req, res) => {
 });
 
 // Создание новой карточки товара (требует аутентификации)
-cardRouter.post('/', verifyAccessToken, async (req, res) => {
-  const { name, price, img, city, wearLevel } = req.body;
-  const userId = req.user.id;
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/img');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
+cardRouter.post('/create', verifyAccessToken, upload.single('img'), async (req, res) => {
+  const { name, price, city, wearLevel } = req.body;
+  const img = req.file ? req.file.filename : null;
 
   try {
-    const card = await Card.create({ name, price, img, city, wearLevel, userId });
+    const card = await Card.create({ name, price, img, city, wearLevel });
     res.status(201).json(card);
   } catch (error) {
     console.error(error);

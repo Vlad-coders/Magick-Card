@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import BasketComponent from '../ui/BasketComponent';
-import axiosInstance from '../../api/axiosInstance';
+import axiosInstance from '../../../api/axiosInstance';
+import BasketComponent from './BasketComponent';
+import styles from './BasketPage.module.css';
+
 export default function BasketPage({ user }) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    axiosInstance(`/basket/`)
+    axiosInstance(`/basket/getCard`)
       .then(({ data }) => setCards(data))
       .catch((error) => console.log(error));
   }, []);
@@ -22,16 +24,11 @@ export default function BasketPage({ user }) {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Добавить в корзину</h1>
-      <div>
+      <div className={styles.cardContainer}>
         {cards.map((card) => (
-          <BasketComponent
-            key={card.id}
-            user={user}
-            card={card}
-            deleteHandler={deleteHandler}
-          />
+          <BasketComponent key={card.id} card={card.Card} deleteHandler={deleteHandler} />
         ))}
       </div>
     </div>
