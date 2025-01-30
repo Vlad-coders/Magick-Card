@@ -6,11 +6,11 @@ export default function SignUpPage({ signUpHandler }) {
   return (
     <Form onSubmit={signUpHandler}>
       <Form.Group>
-        <Form.Label> Name</Form.Label>
-        <Form.Control type="text" name="name" placeholder="Name" />
+        <Form.Label> Имя</Form.Label>
+        <Form.Control type="text" name="name" placeholder="Иван" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Email </Form.Label>
         <Form.Control
           type="email"
           name="email"
@@ -18,8 +18,10 @@ export default function SignUpPage({ signUpHandler }) {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formPlaintextPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Пароль</Form.Label>
         <Form.Control type="password" name="password" placeholder="Password" />
+        <Form.Label> Город</Form.Label>
+        <Form.Control type="text" name="city" placeholder="Москва" />
         <Button type="submit" variant="dark">
           Подтвердить
         </Button>

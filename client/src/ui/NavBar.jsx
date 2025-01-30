@@ -14,18 +14,18 @@ export default function NavBar({
         <MenuItem
           as={Link}
           to="/books"
-          name="Книги"
-          active={activeItem === "Книги"}
-          onClick={() => handleItemClick("Книги")}
+          name="Карты"
+          active={activeItem === "Карты"}
+          onClick={() => handleItemClick("Карты")}
         />
       )}
       {user?.data && (
         <MenuItem
           as={Link}
           to="/add"
-          name="Добавить книгу"
-          active={activeItem === "Добавить книгу"}
-          onClick={() => handleItemClick("Добавить книгу")}
+          name="Добавить карту"
+          active={activeItem === "Добавить карту"}
+          onClick={() => handleItemClick("Добавить карту")}
         />
       )}
       {user?.data && (
@@ -40,7 +40,7 @@ export default function NavBar({
       {!user?.data && (
         <MenuItem
           as={Link}
-          to="/signin"
+          to="/login"
           name="Вход"
           active={activeItem === "Вход"}
           onClick={() => handleItemClick("Вход")}
@@ -60,8 +60,8 @@ export default function NavBar({
           position="right"
           name="Выход"
           active={activeItem === "Выход"}
-          onClick={() => handleItemClick("Выход")}
-          //onClick={logoutHandler}
+          // onClick={() => handleItemClick("Выход")}
+          onClick={logoutHandler}
         />
       )}
     </Menu>
