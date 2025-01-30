@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import BasketComponent from "../ui/BasketComponent"
+import { useEffect, useState } from 'react';
+import BasketComponent from '../ui/BasketComponent';
 import axiosInstance from '../../api/axiosInstance';
-export default function BasketPage({user}) {
-    const[cards,setCards] =useState([])
-  
+export default function BasketPage({ user }) {
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     axiosInstance(`/basket/`)
@@ -21,22 +20,20 @@ export default function BasketPage({user}) {
       console.log(error);
     }
   };
-}
- return (
-      <div>
-        <h1>Добавить в корзину</h1>
-        <div>
-          {cards.map((card) => (
-            <BasketComponent
-              key={card.id}
-              user={user}
-              card={card}
-              deleteHandler={deleteHandler}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  
-  
 
+  return (
+    <div>
+      <h1>Добавить в корзину</h1>
+      <div>
+        {cards.map((card) => (
+          <BasketComponent
+            key={card.id}
+            user={user}
+            card={card}
+            deleteHandler={deleteHandler}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
