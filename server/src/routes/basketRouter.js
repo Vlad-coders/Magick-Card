@@ -69,7 +69,9 @@ basketRouter.delete('/:id', verifyAccessToken, async (req, res) => {
     }
 
     const myBas = await Basket.destroy({
-      where: { cardId: id },
+      where: { cardId: id, userId:user.id
+
+       },
     });
 
     res.status(200).json(myBas);
