@@ -8,6 +8,10 @@ import LoginPage from "./components/pages/Login/LoginPage/LoginPage";
 import PersonalAccount from "./components/pages/Login/PersonalAccount/PersonalAccount";
 
 import Layout from "./Layout";
+// import BasketPage from "./components/pages/BasketPage";
+import ProtectedRouter from "./components/pages/Login/PersonalAccount/PersonalAccount";
+// ./components/HOCs/ProtectedRouter
+
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({ status: "logging" });
@@ -36,7 +40,12 @@ function App() {
   const signUpHandler = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    if (!formData.email || !formData.password || !formData.name) {
+    if (
+      !formData.email ||
+      !formData.password ||
+      !formData.name ||
+      !formData.city
+    ) {
       return alert("Missing required fields");
     }
     axiosInstance.post("/auth/signUp", formData).then(({ data }) => {
@@ -52,7 +61,7 @@ function App() {
     if (!formData.email || !formData.password) {
       return alert("Missing required fields");
     }
-    axiosInstance.post("/auth/signin", formData).then(({ data }) => {
+    axiosInstance.post("/auth/login", formData).then(({ data }) => {
       setUser({ status: "logged", data: data.user });
       setAccessToken(data.accessToken);
     });
@@ -71,6 +80,15 @@ function App() {
           path="/login"
           element={<LoginPage loginHandler={loginHandler} />}
         />
+
+        <Route
+          element={
+            <ProtectedRouter
+              isAllowed={user.status === "logged"}
+              redirectTo="/signUp"
+            />
+          }
+        ></Route>
       </Route>
     </Routes>
   );

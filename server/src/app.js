@@ -14,9 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cookieParser());
 
-
 app.use('/api/auth', authRouter);
-app.use('/api/token', tokenRouter);
+app.use('/api/tokens', tokenRouter);
 app.use('/api/card', cardRouter);
 app.use('/api/basket', basketRouter);
 

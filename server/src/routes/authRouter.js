@@ -4,10 +4,10 @@ const { User } = require('../../db/models');
 const generateTokens = require('../utils/generateTokens');
 const cookieConfig = require('../configs/cookie.config');
 
-authRouter.post('/signup', async (req, res) => {
-  const { email, name, password } = req.body;
+authRouter.post('/signUp', async (req, res) => {
+  const { email, name, password, city } = req.body;
 
-  if (!email || !name || !password) {
+  if (!email || !name || !password || !city) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
