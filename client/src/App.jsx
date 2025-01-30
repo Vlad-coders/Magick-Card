@@ -11,7 +11,6 @@ import Layout from "./Layout";
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState({ status: "logging" });
-  console.log("App=====");
 
   useEffect(() => {
     axiosInstance("/tokens/refresh")

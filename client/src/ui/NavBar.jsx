@@ -61,7 +61,7 @@ export default function NavBar({
           name="Выход"
           active={activeItem === "Выход"}
           onClick={() => handleItemClick("Выход")}
-          // onClick={logoutHandler}
+          //onClick={logoutHandler}
         />
       )}
     </Menu>
