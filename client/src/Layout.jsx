@@ -13,7 +13,7 @@ export default function Layout({ logoutHandler, user, handleItemClick, activeIte
           activeItem={activeItem}
         />
         <Outlet />
-      </Lauder>
+      {/* </Lauder> */}
     </div>
   );
 }

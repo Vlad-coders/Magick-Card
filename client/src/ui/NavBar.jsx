@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 export default function NavBar({ logoutHandler, user, handleItemClick, activeItem }) {
   return (
     <Menu pointing inverted>
+      
       <MenuItem name={user?.data ? user?.data?.name : 'Гость'} />
       {user?.data && (
         // <MenuItem

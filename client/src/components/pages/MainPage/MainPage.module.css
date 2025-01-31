@@ -1,21 +1,21 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    padding: 16px; 
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #d4ad14;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fade65;
-    box-shadow: 0 2px 8px rgba(166, 121, 6, 0.866);
-  }
-  /* .searchContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr);
+  gap: 15px;
+  padding: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #d4ad14;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fade65;
+  box-shadow: 0 2px 8px rgba(166, 121, 6, 0.866);
+}
+/* .searchContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,19 +28,22 @@
     border-radius: 14px;
     width: 50%; 
   } */
-  
-  .sortButton {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 10px;
-    background-color: #007bff;
-    color: white; 
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: 755px
-  }
-  
-  .sortButton:hover {
-    background-color: #0056b3; 
-  }
-  
+
+.sortButton {
+  font-family: 'Pochaevsk', serif;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 755px;
+}
+
+.sortButton:hover {
+  background-color: #0056b3;
+}

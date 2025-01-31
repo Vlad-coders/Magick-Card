@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import MagicCard from '../../ui/MagicCard/MagicCard';
-import styles from './MainPage.module.css';
+import styles from '../MainPage/MainPage.module.css';
 import axiosInstance from '../../../api/axiosInstance';
 import './Search.css'
 
@@ -65,7 +65,7 @@ export default function MainPage() {
           class="searchInput"
           value={input}
           onChange={handleInput}
-          placeholder="Поиск..."
+          placeholder="Введите текст......"
         />
         <button class="searchButton">Поиск</button>
       </div>
