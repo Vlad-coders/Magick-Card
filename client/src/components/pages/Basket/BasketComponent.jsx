@@ -16,7 +16,7 @@ function BasketComponent({ card, deleteHandler }) {
         <div className={styles.wear}>Степень изношенности: {card.wearLevel}</div>
         <div className={styles.city}>Город продавца: {card.city}</div>
         <button className={styles.button} onClick={() => deleteHandler(card.id)}>
-          Удалить
+          Заказать
         </button>
       </div>
     </Card>

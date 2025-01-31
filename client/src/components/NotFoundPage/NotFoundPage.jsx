@@ -11,7 +11,7 @@ export default function NotFoundPage() {
       <div>
         <Button onClick={() => handlerGetBack()}>{'<- Вернуться назад'}</Button>
       </div>
-      <h1>NotFoundPage</h1>
+      <h1>Я Раскажу твоей маме что ты балуешься</h1>
     </div>
   );
 }
