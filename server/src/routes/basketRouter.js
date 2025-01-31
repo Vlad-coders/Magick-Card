@@ -1,6 +1,4 @@
 const basketRouter = require('express').Router();
-const generateTokens = require('../utils/generateTokens');
-const cookieConfig = require('../configs/cookie.config');
 const { Card, Basket, User } = require('../../db/models');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
 
@@ -8,8 +6,8 @@ basketRouter.route('/:id').post(verifyAccessToken, async (req, res) => {
   try {
     const { id } = req.params;
     const { user } = res.locals;
-    const existingUser = await User.findByPk(user.id);
 
+    const existingUser = await User.findByPk(user.id);
     if (!existingUser) {
       return res.status(404).json({ message: 'Пользователь не найден' });
     }
@@ -19,20 +17,31 @@ basketRouter.route('/:id').post(verifyAccessToken, async (req, res) => {
       return res.status(404).json({ message: 'Карта не найдена' });
     }
 
-    const favBas = await Basket.create({
+    const existingBasketItem = await Basket.findOne({
+      where: { cardId: id, userId: user.id },
+    });
+
+    if (existingBasketItem) {
+      return res.status(409).json({ message: 'Карточка уже в корзине' });
+    }
+
+    const newBasketItem = await Basket.create({
       userId: user.id,
       cardId: id,
     });
-    res.status(200).json(favBas);
+
+    res
+      .status(201)
+      .json({ message: 'Карточка добавлена в корзину', data: newBasketItem });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Ошибка сервера' });
   }
 });
-basketRouter.route('/').get(verifyAccessToken, async (req, res) => {
+
+basketRouter.route('/getCard').get(verifyAccessToken, async (req, res) => {
   try {
     const { user } = res.locals;
-    console.log(user, '------user in basket');
 
     const myBas = await Basket.findAll({
       where: { userId: user.id },
@@ -43,8 +52,7 @@ basketRouter.route('/').get(verifyAccessToken, async (req, res) => {
         },
       ],
     });
-
-    console.log(myBas, '------------- card in basket');
+    console.log('myBas ==========', myBas);
 
     res.json(myBas);
   } catch (error) {
@@ -69,12 +77,10 @@ basketRouter.delete('/:id', verifyAccessToken, async (req, res) => {
     }
 
     const myBas = await Basket.destroy({
-      where: { cardId: id, userId:user.id
-
-       },
+      where: { cardId: id, userId: user.id },
     });
 
-    res.status(200).json(myBas);
+    res.status(200).json({ message: 'Карточка удалена из корзины', data: myBas });
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
