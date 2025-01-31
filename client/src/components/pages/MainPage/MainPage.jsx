@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MagicCard from '../../ui/MagicCard/MagicCard';
 import styles from './MainPage.module.css';
 import axiosInstance from '../../../api/axiosInstance';
+import './Search.css'
 
 export default function MainPage() {
   const [cards, setCards] = useState([]);
@@ -58,27 +59,34 @@ export default function MainPage() {
   // добавить кнопку, при нажатии на которую все карточки будут сортироваться в алфавитном порядке названия
   return (
     <>
-    <div className={styles.searchContainer}>
-      <input
-        type="text"
-        value={input}
-        onChange={handleInput}
-        className={styles.searchInput}
-        placeholder="Поиск..."
-      />
-      <button onClick={sortHandler} className={styles.sortButton}>
-        Сортировать
-      </button>
-    </div>
-    <div className={styles.container}>
-      {search.length > 0
-        ? search.map((card) => (
-            <MagicCard key={card.id} card={card} />
-          ))
-        : cards.map((card) => (
-            <MagicCard key={card.id} card={card} />
-          ))}
-    </div>
-  </>
+      <div class="searchContainer">
+        <input
+          type="text"
+          class="searchInput"
+          value={input}
+          onChange={handleInput}
+          placeholder="Поиск..."
+        />
+        <button class="searchButton">Поиск</button>
+      </div>
+      {/* <div className={styles.searchContainer}>
+        <input
+          type="text"
+          value={input}
+          onChange={handleInput}
+          className={styles.searchInput}
+          placeholder="Поиск..."
+        /> */}
+        
+        <button onClick={sortHandler} className={styles.sortButton}>
+          Сортировать
+        </button>
+      {/* </div> */}
+      <div className={styles.container}>
+        {search.length > 0
+          ? search.map((card) => <MagicCard key={card.id} card={card} />)
+          : cards.map((card) => <MagicCard key={card.id} card={card} />)}
+      </div>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "semantic-ui-css/semantic.min.css";
 import App from "./App.jsx";
+import './main.css'
 import { BrowserRouter } from "react-router";
 
 
