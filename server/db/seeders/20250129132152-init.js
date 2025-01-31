@@ -2,17 +2,17 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Cards', [
       {
-        name: 'Карта 1',
+        name: 'Истерание',
         img: 'abrade.jpg',
         price: 100,
         wearLevel: 'Заметно Поигранная',
         city: 'Москва',
       },
       {
-        name: 'Карта 2',
+        name: 'Изобилие',
         img: 'abundance.jpg',
         price: 200,
         wearLevel: 'Отличное',
@@ -20,14 +20,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Обильный Рост',
         img: 'abundant-growth.jpg',
         price: 100,
         wearLevel: 'Слегка поигранная',
         city: 'Казань',
       },
       {
-        name: 'Карта 2',
+        name: 'Возвышение Абзана',
         img: 'abzan-ascendancy.jpg',
         price: 200,
         wearLevel: 'Новая',
@@ -35,14 +35,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Талимсман Абзана',
         img: 'abzan-charm.jpg',
         price: 100,
         wearLevel: 'Слегка поигранная',
         city: 'Владивосток',
       },
       {
-        name: 'Карта 2',
+        name: 'Дрейк Академии',
         img: 'academy-drake.jpg',
         price: 200,
         wearLevel: 'Отличное',
@@ -50,14 +50,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Знаток Приобретений',
         img: 'acquisitions-expert.jpg',
         price: 100,
         wearLevel: 'Отличное',
         city: 'Казань',
       },
       {
-        name: 'Карта 2',
+        name: 'Акт Измены',
         img: 'act-of-treason.jpg',
         price: 200,
         wearLevel: 'Новая',
@@ -65,14 +65,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Адаптируюещаяся Система',
         img: 'adaptive-shimmerer.jpg',
         price: 100,
         wearLevel: 'Новая',
         city: 'Владивосток',
       },
       {
-        name: 'Карта 2',
+        name: 'Адель, Блистательный Катар',
         img: 'adeline-resplendent-cathar.jpg',
         price: 200,
         wearLevel: 'Заметно Поигранная',
@@ -80,14 +80,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Адмирал Бекед Бравада',
         img: 'admiral-beckett-brass.jpg',
         price: 100,
         wearLevel: 'Отличное',
         city: 'Оренбург',
       },
       {
-        name: 'Карта 2',
+        name: 'Воздушный Инженер',
         img: 'aerial-engineer.jpg',
         price: 200,
         wearLevel: 'Слегка поигранная',
@@ -95,14 +95,14 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Эфирная Буря',
         img: 'aether-gale.jpg',
         price: 100,
         wearLevel: 'Заметно Поигранная',
         city: 'Екатеринбург',
       },
       {
-        name: 'Карта 2',
+        name: 'Анинок выживатель',
         img: 'ainok-survivalist.jpg',
         price: 200,
         wearLevel: 'Слегка поигранная',
@@ -110,7 +110,7 @@ module.exports = {
       },
 
       {
-        name: 'Карта 1',
+        name: 'Элементаль Воздуха',
         img: 'air-elemental.jpg',
         price: 100,
         wearLevel: 'Новая',
@@ -121,12 +121,12 @@ module.exports = {
     ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
