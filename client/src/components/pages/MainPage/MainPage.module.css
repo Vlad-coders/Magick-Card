@@ -30,6 +30,10 @@
   } */
 
 .sortButton {
+  font-family: 'Pochaevsk', serif;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
   padding: 8px 16px;
   border: none;
   border-radius: 10px;

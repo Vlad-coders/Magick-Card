@@ -1,5 +1,17 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  gap: 20px;
+}
+
+.img {
+  max-width: 50%; /* Ограничиваем размер картинки */
+  height: auto;
+}
+
+.buttonWrapper {
+  justify-self: start;
 }

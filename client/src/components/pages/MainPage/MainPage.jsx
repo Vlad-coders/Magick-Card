@@ -65,7 +65,7 @@ export default function MainPage() {
           class="searchInput"
           value={input}
           onChange={handleInput}
-          placeholder="Поиск..."
+          placeholder="Введите текст......"
         />
         <button class="searchButton">Поиск</button>
       </div>
