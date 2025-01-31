@@ -1,17 +1,42 @@
 .container {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   justify-items: center;
   align-items: center;
   min-height: 100vh;
   text-align: center;
+  background-color: #f5f7fa;
   gap: 20px;
+  padding: 20px;
 }
 
 .img {
-  max-width: 50%; /* Ограничиваем размер картинки */
+  max-width: 40%; 
   height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease;
 }
 
 .buttonWrapper {
-  justify-self: start;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+h1 {
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
