@@ -1,6 +1,7 @@
 const basketRouter = require('express').Router();
 const { Card, Basket, User } = require('../../db/models');
 const { verifyAccessToken } = require('../middlewares/verifyTokens');
+const sender = require('./nodemailer');
 
 basketRouter.route('/:id').post(verifyAccessToken, async (req, res) => {
   try {
@@ -70,6 +71,21 @@ basketRouter.delete('/:id', verifyAccessToken, async (req, res) => {
     if (!existingUser) {
       return res.status(404).json({ message: 'Пользователь не найден' });
     }
+
+    const mail = {
+      from: 'rasulmagomedov7005@gmail.com',
+      to: existingUser.email,
+      subject: 'Заказ',
+      text: 'Ваш заказ принят',
+    };
+
+    sender.sendMail(mail, (error, info) => {
+      if (error) {
+        console.log('Ошибка при отправке письма:', error);
+      } else {
+        console.log(`Письмо успешно отправлено: ${info.response}`);
+      }
+    });
 
     const existingCard = await Card.findByPk(id);
     if (!existingCard) {
