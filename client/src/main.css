@@ -1,0 +1,13 @@
+* {
+    font-family: "IBM Plex Mono", monospace;
+}
+
+#root {
+    /* background-image: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/wm/2025/01/what-to-expect-from-magic-the-gathering-2025-game-rant.png'); */
+     background-size: cover; 
+     
+    height: 360vh;
+    width: 100%;
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/010/840/486/large/darek-zabrocki-403024-spiregardens-final-fixed-darekzabrocki.jpg?1526495770');
+    
+}
