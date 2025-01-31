@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const path = require('path');
 // const emailRouter = require('./routes/EmailRoter');
 
 const authRouter = require('./routes/authRouter');
@@ -25,6 +26,12 @@ app.use('/api/tokens', tokenRouter);
 app.use('/api/card', cardRouter);
 app.use('/api/basket', basketRouter);
 app.use('/api/search', searchRouter);
+
+
+app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
 
 const sender = nodemailer.createTransport({
   service: 'gmail',

@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import MagicCard from '../../ui/MagicCard/MagicCard';
 import styles from '../MainPage/MainPage.module.css';
 import axiosInstance from '../../../api/axiosInstance';
-import './Search.css'
+import './Search.css';
 
 export default function MainPage() {
   const [cards, setCards] = useState([]);
   const [isSorted, setIsSoretd] = useState(true);
-  const[input, setInput] = useState('')
-  const[search, setSearch] = useState([])
+  const [input, setInput] = useState('');
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     fetch('/api/card') // axios -> res.data
@@ -17,24 +17,20 @@ export default function MainPage() {
   }, []);
 
   const handleInput = (e) => {
-    setInput(e.target.value)
-  }
+    setInput(e.target.value);
+  };
 
   useEffect(() => {
-    let timeoutId
+    let timeoutId;
     if (input) {
-      timeoutId = setTimeout(()=> {
-        axiosInstance(`/search/?filter=${input}`).then((res)=>
-          setSearch(res.data)
-        )
-      }, 500)
-      return () => clearTimeout(timeoutId)
-    }else{
-      setSearch([])
+      timeoutId = setTimeout(() => {
+        axiosInstance(`/search/?filter=${input}`).then((res) => setSearch(res.data));
+      }, 500);
+      return () => clearTimeout(timeoutId);
+    } else {
+      setSearch([]);
     }
-    }, [input])
-      
-    
+  }, [input]);
 
   const sortHandler = () => {
     setIsSoretd((p) => !p);
@@ -55,19 +51,18 @@ export default function MainPage() {
     // }
   };
 
-
   // добавить кнопку, при нажатии на которую все карточки будут сортироваться в алфавитном порядке названия
   return (
     <>
-      <div class="searchContainer">
+      <div className="searchContainer">
         <input
           type="text"
-          class="searchInput"
+          className="searchInput"
           value={input}
           onChange={handleInput}
           placeholder="Введите текст......"
         />
-        <button class="searchButton">Поиск</button>
+        <button className="searchButton">Поиск</button>
       </div>
       {/* <div className={styles.searchContainer}>
         <input
@@ -77,10 +72,10 @@ export default function MainPage() {
           className={styles.searchInput}
           placeholder="Поиск..."
         /> */}
-        
-        <button onClick={sortHandler} className={styles.sortButton}>
-          Сортировать
-        </button>
+
+      <button onClick={sortHandler} className={styles.sortButton}>
+        Сортировать
+      </button>
       {/* </div> */}
       <div className={styles.container}>
         {search.length > 0

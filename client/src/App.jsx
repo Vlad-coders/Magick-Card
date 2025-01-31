@@ -159,6 +159,7 @@ function App() {
         <Route path="/signUp" element={<SignUpPage signUpHandler={signUpHandler} />} />
         <Route path="/login" element={<LoginPage loginHandler={loginHandler} />} />
 
+        {/* Защищённые маршруты */}
         <Route
           element={
             <ProtectedRouter isAllowed={user.status === 'logged'} redirectTo="/login" />
