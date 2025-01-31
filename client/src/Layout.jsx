@@ -1,11 +1,11 @@
 import React from 'react';
 import NavBar from './ui/NavBar';
 import { Outlet } from 'react-router-dom';
-import Lauder from './components/pages/Louder/Lauder';
+// import Lauder from './components/pages/Louder/Lauder';
 export default function Layout({ logoutHandler, user, handleItemClick, activeItem }) {
   return (
     <div>
-      <Lauder>
+      {/* <Lauder> */}
         <NavBar
           logoutHandler={logoutHandler}
           user={user}
@@ -13,7 +13,7 @@ export default function Layout({ logoutHandler, user, handleItemClick, activeIte
           activeItem={activeItem}
         />
         <Outlet />
-      </Lauder>
+      {/* </Lauder> */}
     </div>
   );
 }

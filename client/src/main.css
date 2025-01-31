@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Pochaevsk&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
 * {
-    font-family: "IBM Plex Mono", monospace;
+   
 }
 
 #root {
     /* background-image: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/wm/2025/01/what-to-expect-from-magic-the-gathering-2025-game-rant.png'); */
-     background-size: cover; 
-     
+    background-size: cover; 
+    font-family: 'Poppins', sans-serif;
     height: 360vh;
     width: 100%;
     background-image: url('https://cdna.artstation.com/p/assets/images/images/010/840/486/large/darek-zabrocki-403024-spiregardens-final-fixed-darekzabrocki.jpg?1526495770');
